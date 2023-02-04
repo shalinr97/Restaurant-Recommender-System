@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+ <h1>Details</h1><br>
+    {{ object_list.Restaurant_Name }}<br>{{ object_list.City }}<br>{{ object_list.Address }}
+    
+</div>
+   
+
+{% endblock content %}

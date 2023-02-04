@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block  content %}
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    {% block navchange %}<li class="nav-item">
+      <a class="nav-link" href="{% url "home" %}">Home <span class="sr-only"></span></a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link active" href="{% url "test" %}">Restaurants</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url "recommend" %}">Recommend</a>
+    </li>{% endblock  %}
+  </ul>
+</div>
+
+<div class='container'>
+
+   <h1>Restaurant List</h1>
+   <style>
+     ul {-webkit-column-count: 2; /* For Safari/Chrome */}
+   </style>
+    <ul style="list-style: none;">
+        {% for obj in object_list %}
+
+        <div class="col-sm-6 my-2">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title"><a href="" >{{ obj.name }}</a></h5>
+                <div class="">
+                <img class="card-img-top {width:50%;}" src="{{ obj.image_url }}" alt="Card image cap"></div>
+                 <p class="card-text">{{ obj.location.city }}   </p>
+                 <p class="card-text">{{ obj.rating }}   </p>
+                <a href="{{ obj.url }}" class="btn btn-primary">visit website</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock  %}

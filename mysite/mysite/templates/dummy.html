@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    {% block navchange %}<li class="nav-item ">
+      <a class="nav-link" href="{% url "home" %}">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="{% url "test" %}">Restaurants</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url "recommend" %}">Recommend</a>
+    </li>{% endblock  %}
+  </ul>
+</div>
+
+
+    <div class="container">
+        <div class= "list-group">
+        <h1>Restaurant List</h1>
+
+        <h4>random user selected is {{ random_user }}</h4>
+
+        <div id="loop">
+            {% for row in object_list %}
+            <div class= "list-group my-2">
+                <a href="javascript:void(0)" class="list-group-item active" >
+                <h4 class="list-group-item-heading" >{{ row }} </h4>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li>
+              <a class="page-link" id= "previous-page" href="javascript:void(0)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+
+
+
+            </li>
+          </ul>
+        </nav>
+    </div>
+
+{% endblock %}

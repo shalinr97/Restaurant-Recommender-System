@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Restaurant | {{ block.super }}{% endblock %}
+
+{% block navchange %}<li class="nav-item">
+  <a class="nav-link" href="{% url "home" %}">Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="{% url "restaurant" %}">Restaurants</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#">Contact us</a>
+</li>{% endblock  %}
+
+
+<div class="pagination">
+  {{posts.paginator.count}}
+  {{object_list.number}}
+  {{posts.paginator.num_pages}}
+  {{posts.paginator.page_range}}
+</div>
+
+
+
+{% block content %}
+<div class="container">
+  <h1>Restaurant List</h1>
+  <ul>
+    {% for obj in object_list %}
+    <li><a href="/resco/restaurant/{{ obj.id }}/" >{{ obj.Restaurant_Name }}</a><br>{{ obj.City }}{{ obj.Price_Range }}{{ obj.Aggregate_Rating }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if object_list.has_previous %}
+    <a href="?page={{ object_list.1 }}">First </a>|
+    <a href="?page={{ object_list.previous_page_number }}">Prev</a> |
+  {% endif %}
+
+  {% for num in object_list.paginator.page_range %}
+    {% if object_list.number == num %}
+      <strong>{{ num }} </strong> |
+    {% elif num > object_list.number|add:'-3' and num < object_list.number|add:'3' %}
+      {{num}} |
+    {% endif %}
+  {% endfor %}
+
+  {% if object_list.has_next %}
+    <a href="?page={{ object_list.next_page_number }}">Next</a> |
+    <a href="?page={{ object_list.paginator.num_pages }}">Last</a>
+  {% endif %}
+
+
+
+</div>
+
+{% endblock %}

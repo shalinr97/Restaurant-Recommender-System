@@ -1,0 +1,34 @@
+.login-jum{
+  background-image: url('../images/topbg.jpg');
+  color: #f8f9fa;
+}
+.home-jum{
+  background-color: transparent !important;
+  color: white;
+}
+
+.asteriskField{
+  display: none;
+}
+.facebook-btn{
+     background-color:#3C589C !important;
+  }
+.google-btn{ background-color: #DF4B3B !important; }
+.social-btn{
+  font-weight: 100  !important;
+   color:white !important;
+   width:190px  !important;
+   font-size: 0.9rem !important;
+}
+.fixed-bg{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -2;
+background-repeat: no-repeat;
+
+  background-attachment: fixed !important;
+}

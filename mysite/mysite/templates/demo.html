@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% load static %}
+ {% block content %}
+
+  <body>
+    <div class="s013">
+      <form method = "get" action= "/resco/searchresult/">
+       {% csrf_token %}
+        <fieldset>
+          <legend>QUICK FIND YOUR RESTAURANT</legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="left">
+            <div class="input-wrap first">
+              <div class="input-field first">
+              
+                <label>WHAT</label>
+                <input type="text" name ="search" placeholder="Restaurant" />
+              </div>
+            </div>
+          </div>
+          <button class="btn-search" type="submit" href="{% url "searchresult" %}">SEARCH</button>
+        </div>
+      </form>
+    </div>
+    
+    <script src={%static "js/extention/choices.js" %}></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+
+    </script>
+  </body>
+{% endblock content %} 

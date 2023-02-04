@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid home-jum ">
+  <div class="container ">
+    <div style="background-image: url({% static 'assets/images/topbg.jpg'%});" class= "fixed-bg"></div>
+
+ <h1 class="display-2" style="font-family:Pacifico;">Resco</h1>
+  <p class="lead display-4">Find Best Restaurants And Get Recommedation</p>
+  <div class="d-flex justify-content-center">
+  <a class="btn btn-primary " href="{% url 'recommend' %}" >Recommend!</a>
+  </div>
+  </div>
+</div>
+{% endblock %}
